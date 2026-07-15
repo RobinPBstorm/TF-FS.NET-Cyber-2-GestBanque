@@ -29,3 +29,22 @@ Pour se faire, on limitera l'accés avec ces mots clés:
 types dérivés de la classe conteneur)
  - **private protected**	(restreint aux types dérivés de la classe
 conteneur uniquement dans le même assembly)
+
+## Les propriétées
+
+Il est plus que judicieux de limiter l'accés et la modification des variables de nos classes.\
+C'est ici que nos **propriétées** vont nous aider.
+
+```C#
+	private int count = 0;
+	public int Count {
+		get 
+		{
+			return count;
+		}
+		set
+		{
+			count = value;
+		}
+	}
+```
