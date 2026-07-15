@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models
+namespace Models.Demo
 {
 	public class Voiture
 	{
@@ -69,7 +69,7 @@ namespace Models
 			set { estDisponible = value; }
 		}
 
-		internal Garage garage;
+		// internal Garage garage;
 
 		private int vitesse = 0;
 
