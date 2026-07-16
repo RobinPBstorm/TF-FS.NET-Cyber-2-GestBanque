@@ -57,12 +57,20 @@ Console.WriteLine(((Celsius)fahrenheit).Degre);
 //courant.Titulaire = bruce;
 //courant.Depot(1000000);
 
+//Courant courant2 = new Courant();
+//courant2.LigneDeCredit = 200;
+//courant2.Numero = "2";
+//courant2.Titulaire = bruce;
+//courant2.Retrait(100);
+
 //Console.WriteLine($"{courant.Numero} appartenant à {courant.Titulaire.Prenom} {courant.Titulaire.Nom} avec {courant.Solde}");
 
 //Banque banque = new Banque();
 //banque.Nom = "Gotham City Bank";
 
 //banque.Ajouter(courant);
+//banque.Ajouter(courant2);
 //Console.WriteLine(banque["1"]?.Solde);
+//Console.WriteLine(banque.AvoirDesComptes(bruce));
 
 #endregion

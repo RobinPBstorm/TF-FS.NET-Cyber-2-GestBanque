@@ -51,7 +51,24 @@ namespace Models
 		{
 			Solde += montant;
 		}
+		public void Depot()
+		{
+			Depot(50d);
+		}
 
+		// +(élément à gauche, élément à droite)
+		public static double operator +(Courant courant, double montant)
+		{
+			if (courant.Solde > 0)
+			{
+				return courant.Solde + montant;
+			}
+			return montant;
+		}
+		public static double operator +(double montant, Courant courant)
+		{
+			return courant + montant;
+		}
 
 	}
 }

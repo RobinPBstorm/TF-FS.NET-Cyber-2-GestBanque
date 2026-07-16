@@ -43,5 +43,19 @@ namespace Models
 			}
 		}
 
+		public double AvoirDesComptes(Personne titulaire)
+		{
+			double soldeTotal = 0;
+
+			foreach (Courant courant in Comptes.Values)
+			{
+				if (courant.Titulaire == titulaire)
+				{
+					soldeTotal += courant;
+				}
+			}
+
+			return soldeTotal;
+		}
 	}
 }
