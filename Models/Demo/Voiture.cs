@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models.Demo
 {
-	public class Voiture
+	public class Voiture: Vehicule
 	{
 		private string carburant;
 		public string Carburant 
@@ -71,29 +71,34 @@ namespace Models.Demo
 
 		// internal Garage garage;
 
-		private int vitesse = 0;
-
-		public int Vitesse
+		public override void Accelerer(int vitesseSup = 10)
 		{
-			get { return vitesse; }
-			private set 
+			Console.WriteLine("Accélération depuis Voiture");
+			if (vitesseSup > 120)
 			{
-				if (value >= 0)
-				{
-					vitesse = value; 
-				}
+				vitesseSup = 120;
 			}
+			Vitesse += vitesseSup;
+
+			// à la place, on peut faire appel à la même
+			//base.Accelerer(vitesseSup);
 		}
 
-		public void Accelerer(int vitesseSup = 10)
+		// new = on réécrit le comportement d'une méthode
+		public new void Decelerer(int vitesseDif = 10)
 		{
-			Vitesse += vitesseSup;
-		}
-		public void Decelerer(int vitesseDif = 10)
-		{
+			Console.WriteLine("Décélération depuis Voiture");
 			Vitesse -= vitesseDif;
 		}
 
+		public string Klaxonner()
+		{
+			return "Bip bip";
+		}
 
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 	}
 }

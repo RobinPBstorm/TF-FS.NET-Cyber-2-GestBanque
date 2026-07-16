@@ -6,22 +6,22 @@ namespace Models.Demo
 {
 	public class Garage
 	{
-		private List<Voiture> voitures = new List<Voiture>();
+		private List<Vehicule> vehicules = new List<Vehicule>();
 
-		public List<Voiture> Voitures
+		public List<Vehicule> Voitures
 		{
-			get { return voitures; }
-			set { voitures = value; }
+			get { return vehicules; }
+			set { vehicules = value; }
 		}
 
-		public Voiture this[int position]
+		public Vehicule this[int position]
 		{
 			get
 			{
-				Voiture voiture = null;
-				if (position >= 0 && position < voitures.Count)
+				Vehicule voiture = null;
+				if (position >= 0 && position < vehicules.Count)
 				{
-					voiture = voitures[position];
+					voiture = vehicules[position];
 				}
 				return voiture;
 			}
