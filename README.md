@@ -108,3 +108,40 @@ Si nous avons une collections d'élément dans notre classe, nous pouvons créer
 	Garage garage = new Garage();
 	garage[0] = mazda3;  
 ```
+
+## Surcharge d'opérateur
+
+On peut définir/redéfinir le fonctionnement derrière un opérateur mathématique ou logique
+
+```C#
+public class Garage {
+...
+	// +(élément à gauche, élément à droite)
+	public static int operator +(Garage garage, Voiture voiture)
+	{
+		// si la voiture est déjà dans le garage
+		if (garage.Voitures.Contains(voiture))
+		{
+			return garage.Voitures.Count;
+		}
+
+		// sinon, on l'ajoute
+		garage.Voitures.Add(voiture);
+		return garage.Voitures.Count;
+	}
+
+}
+```
+
+On peut aussi définir comment fonctionne le cast (changement de type) implicite ou explicite
+
+```C#
+public static explicit operator MonAutreClasse(MaClasse maClasse)
+{
+	MonAutreClasse autreClasse = new MonAutreClasse();
+	autreClasse.Nom = mClasse.Nom 
+	return autreClasse;
+}
+```
+
+## Héritage
