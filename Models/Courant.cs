@@ -4,25 +4,9 @@ using System.Text;
 
 namespace Models
 {
-	public class Courant
+	public class Courant: Compte
 	{
-		public string Numero { get; set; }
-		private double solde = 0;
-
-		public double Solde
-		{
-			get	
-			{ 
-				return solde; 
-			}
-			private set 
-			{
-				if (value >= - LigneDeCredit)
-				{
-					solde = value; 
-				}
-			}
-		}
+		
 
 		private double ligneDeCredit;
 
@@ -41,33 +25,13 @@ namespace Models
 			}
 		}
 
-		public Personne Titulaire { get; set; }
 
-		public void Retrait(double montant)
+		public override void Retrait(double montant)
 		{
-			Solde -= montant;
-		}
-		public void Depot(double montant)
-		{
-			Solde += montant;
-		}
-		public void Depot()
-		{
-			Depot(50d);
-		}
-
-		// +(élément à gauche, élément à droite)
-		public static double operator +(Courant courant, double montant)
-		{
-			if (courant.Solde > 0)
+			if (Solde - montant >= -LigneDeCredit)
 			{
-				return courant.Solde + montant;
+				base.Retrait(montant);
 			}
-			return montant;
-		}
-		public static double operator +(double montant, Courant courant)
-		{
-			return courant + montant;
 		}
 
 	}
