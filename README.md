@@ -7,7 +7,18 @@ GestBanque est un projet en C# pour explorer les bases de l'orienté objet.
 Nos **classes** sont comme des moules. \
 Nous y définissons les caractèristiques de nos objets.\
 
+```C#
+	public class Personne {
+		public string nom;
+	}
+```
+
 Dans notre analogie, tous ce qui ressorira de notre moule seront des **instances**.\
+
+```C#
+	Personne tim = new Personne();
+	tim.nom = "Tim";
+```
 
 ### Pour créer une classe
 
@@ -47,4 +58,53 @@ C'est ici que nos **propriétées** vont nous aider.
 			count = value;
 		}
 	}
+```
+
+Remarque: Même s'ils sont employés comme des variables, cela reste des méthodes !
+
+```C#
+	monInstance.Count += 1;
+	Console.WriteLine(monInstance.Count)
+```
+
+## Les indexeurs
+
+**Spécificité de C#**
+
+Si nous avons une collections d'élément dans notre classe, nous pouvons créer un indexeurs pour chaque instance puisse accéder plus facilement à un élement de notre collection.
+
+```
+	private List<Voiture> voitures = new List<Voiture>();
+
+	public Voiture this[int position]
+	{
+		get
+		{
+			Voiture voiture = null;
+			if (position >= 0 && position < voitures.Count)
+			{
+				voiture = voitures[position];
+			}
+			return voiture;
+		}
+		set
+		{
+			if (position == voitures.Count)
+			{
+				voitures.Add(value);
+			}
+			else if (position >= 0 && position < voitures.Count)
+			{
+				voitures[position] = value;
+			}
+		}
+	}
+```
+
+
+```C#
+	Voiture mazda3 = new Voiture();
+
+	Garage garage = new Garage();
+	garage[0] = mazda3;  
 ```
