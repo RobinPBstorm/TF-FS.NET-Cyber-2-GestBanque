@@ -33,5 +33,10 @@ namespace Models
 				base.Retrait(montant);
 			}
 		}
+
+		protected override double CalculInteret()
+		{
+			return Solde * 4.5 / 100;
+		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models
 {
-	public class Compte
+	public abstract class Compte
 	{
 		public string Numero { get; set; }
 		public Personne Titulaire { get; set; }
@@ -24,6 +24,7 @@ namespace Models
 			}
 		}
 
+		#region méthode
 		public void Depot(double montant)
 		{
 			Solde += montant;
@@ -34,7 +35,16 @@ namespace Models
 			Solde -= montant;
 		}
 
+		// Design Pattern
+		protected abstract double CalculInteret();
+		public void AppliquerInteret()
+		{
+			Solde += CalculInteret();
+		}
+		#endregion
 
+
+		#region surcharge opérateur
 		// +(élément à gauche, élément à droite)
 		public static double operator +(Compte compte, double montant)
 		{
@@ -48,5 +58,7 @@ namespace Models
 		{
 			return compte + montant;
 		}
+		#endregion
+
 	}
 }

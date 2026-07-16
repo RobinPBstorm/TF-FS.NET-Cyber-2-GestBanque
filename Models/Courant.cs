@@ -6,8 +6,6 @@ namespace Models
 {
 	public class Courant: Compte
 	{
-		
-
 		private double ligneDeCredit;
 
 		public double LigneDeCredit
@@ -34,5 +32,13 @@ namespace Models
 			}
 		}
 
+		protected override double CalculInteret()
+		{
+			if (Solde < 0)
+			{
+				return Solde * 9.75 / 100;
+			}
+			return Solde * 3 / 100;
+		}
 	}
 }
