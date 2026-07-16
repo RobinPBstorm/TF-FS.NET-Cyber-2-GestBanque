@@ -100,5 +100,11 @@ namespace Models.Demo
 		{
 			return base.ToString();
 		}
+
+		public override void Entretenir()
+		{
+			Console.WriteLine("Faire la vidange");
+			Console.WriteLine("Callibrage des phrases");
+		}
 	}
 }

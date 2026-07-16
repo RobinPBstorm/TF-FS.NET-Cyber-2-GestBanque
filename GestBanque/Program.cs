@@ -8,6 +8,7 @@ using System.Xml;
 Voiture mazda3 = new Voiture();
 mazda3.Carburant = "Diesel";
 mazda3.NbRoue = 4;
+mazda3.Id = Voiture.dernierId++;
 
 mazda3.NbRoue = 1000;
 
@@ -17,28 +18,30 @@ mazda3.Accelerer();
 // Decelerer (new) => Voiture
 mazda3.Decelerer();
 mazda3.Klaxonner();
+mazda3.Entretenir();
 
 Vehicule v = mazda3;
 // Accelerer (override) => Voiture
 v.Accelerer();
 // Decelerer (new) => Vehicule
 v.Decelerer();
+v.Entretenir();
 if (v is Voiture)
 {
 	Console.WriteLine("Klaxon de la mazda");
 	Console.WriteLine(((Voiture)v).Klaxonner());
 }
-Vehicule v2 = new Vehicule();
-if (v2 is Voiture)
-{
-	Console.WriteLine("Klaxon du véhicule");
-	Console.WriteLine(((Voiture)v2).Klaxonner());
-}
+//Vehicule v2 = new Vehicule();
+//if (v2 is Voiture)
+//{
+//	Console.WriteLine("Klaxon du véhicule");
+//	Console.WriteLine(((Voiture)v2).Klaxonner());
+//}
 
 switch (v)
 {
 	case Voiture voiture:
-		Console.WriteLine(voiture.Klaxonner);
+		voiture.Klaxonner();
 		break;
 	case Velo velo:
 		// instruction pours le vélo
@@ -62,6 +65,18 @@ Console.WriteLine(garage + mazda3);
 Console.WriteLine("---indexeur---");
 Console.WriteLine(garage.Voitures[0].Vitesse);
 Console.WriteLine(garage[0].Vitesse);
+
+Voiture daciaSandero = new Voiture();
+daciaSandero.Id = Voiture.dernierId++;
+daciaSandero.Peindre("jaune poussin");
+
+Voiture astonMartin = new Voiture();
+astonMartin.Id = Voiture.dernierId++;
+
+Console.WriteLine($"mazda3 : id = {mazda3.Id}");
+Console.WriteLine($"dacia sandero : id = {daciaSandero.Id}");
+Console.WriteLine($"aston martin : id = {astonMartin.Id}");
+Console.WriteLine(Vehicule.dernierId);
 
 Personne bruce = new Personne();
 bruce.Prenom = "Bruce";

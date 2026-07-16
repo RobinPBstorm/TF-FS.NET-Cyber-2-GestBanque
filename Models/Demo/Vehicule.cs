@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Models.Demo
 {
-	public class Vehicule
+	public abstract class Vehicule
 	{
+		public static int dernierId = 0;
+		public int Id { get; set; }
 
 		protected int vitesse = 0;
 
@@ -33,6 +35,8 @@ namespace Models.Demo
 			Console.WriteLine("Décélération depuis Véhicule");
 			Vitesse -= vitesseDif;
 		}
+
+		public abstract void Entretenir();
 
 		// override = on réécrit le comrtement d'une fonction (avec virtual par exemple)
 		public override string ToString()
