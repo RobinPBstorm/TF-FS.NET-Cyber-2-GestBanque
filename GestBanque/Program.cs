@@ -35,6 +35,16 @@ if (v2 is Voiture)
 	Console.WriteLine(((Voiture)v2).Klaxonner());
 }
 
+switch (v)
+{
+	case Voiture voiture:
+		Console.WriteLine(voiture.Klaxonner);
+		break;
+	case Velo velo:
+		// instruction pours le vélo
+		break;
+}
+
 ((Vehicule)mazda3).Accelerer();
 ((Vehicule)mazda3).Decelerer();
 
