@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models
 {
-	public abstract class Compte
+	public abstract class Compte: IBanker, ICustomer
 	{
 		public string Numero { get; set; }
 		public Personne Titulaire { get; set; }
