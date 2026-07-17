@@ -29,10 +29,11 @@ namespace Models.Demo
 			}
 			set 
 			{
-				if (value >= 0 && value <= 6)
+				if (value < 0 || value > 6)
 				{
-					nbRoue = value;
+					throw new NombreRoueInvalideException();
 				}
+				nbRoue = value;
 			}
 		}
 
