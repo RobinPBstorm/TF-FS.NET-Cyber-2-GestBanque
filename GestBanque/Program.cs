@@ -1,18 +1,18 @@
 ﻿using Models;
 using Models.Autres_exercices;
 using Models.Demo;
-using System.Xml;
 
 
 #region demo
-Voiture mazda3 = new Voiture();
 foreach (int value in ListeValeurPaire.getNombres())
 {
 	Console.WriteLine(value);
 }
+
+Voiture mazda3 = new Voiture(4);
 mazda3.Carburant = "Diesel";
-mazda3.NbRoue = 4;
 mazda3.Id = Voiture.dernierId++;
+Console.WriteLine(mazda3.NbRoue);
 
 mazda3.NbRoue = 1000;
 

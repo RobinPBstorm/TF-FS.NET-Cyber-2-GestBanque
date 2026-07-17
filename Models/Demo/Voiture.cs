@@ -69,6 +69,19 @@ namespace Models.Demo
 			set { estDisponible = value; }
 		}
 
+		public Voiture(): this(4,"essence") 
+		{
+			// initialisation de valeur après l'appel du constrcteur avec 1 paramètre int
+		}
+		public Voiture(int nbRoue): this(nbRoue, "essence")
+		{
+		}
+		public Voiture(int nbRoue, string carburant)
+		{
+			NbRoue = nbRoue;
+			Carburant = carburant;
+		}
+
 		// internal Garage garage;
 
 		public override void Accelerer(int vitesseSup = 10)
