@@ -6,6 +6,10 @@ using System.Xml;
 
 #region demo
 Voiture mazda3 = new Voiture();
+foreach (int value in ListeValeurPaire.getNombres())
+{
+	Console.WriteLine(value);
+}
 mazda3.Carburant = "Diesel";
 mazda3.NbRoue = 4;
 mazda3.Id = Voiture.dernierId++;
