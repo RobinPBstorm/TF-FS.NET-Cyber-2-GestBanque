@@ -22,6 +22,18 @@ namespace Models
 				}
 			}
 		}
+		public Courant(string numero, Personne titulaire) : this(numero, titulaire, 0, 0)
+		{
+		}
+
+		public Courant(string numero, Personne titulaire, double solde) : this(numero, titulaire, solde, 0)
+		{
+		}
+
+		public Courant(string numero, Personne titulaire,double solde, double ligneDeCredit): base(numero, titulaire, solde)
+		{
+			LigneDeCredit = ligneDeCredit;
+		}
 
 
 		public override void Retrait(double montant)

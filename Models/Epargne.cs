@@ -15,7 +15,7 @@ namespace Models
 			{
 				return dateDernierRetrait;
 			}
-			set
+			private set
 			{
 				DateTime aujourdhui = DateTime.Now;
 				if (value <= aujourdhui)
@@ -23,6 +23,16 @@ namespace Models
 					dateDernierRetrait = value;
 				}
 			}
+		}
+
+		public Epargne(string numero, Personne titulaire) : this(numero, titulaire, 0)
+		{
+		}
+
+		public Epargne(string numero, Personne titulaire, double solde): base(numero, titulaire, solde)
+		{
+			
+			DateDernierRetrait = DateTime.Now;
 		}
 
 		public override void Retrait(double montant)

@@ -6,15 +6,15 @@ namespace Models
 {
 	public class Personne
 	{
-		public string Nom { get; set; }
-		public string Prenom { get; set; }
+		public string Nom { get; init; }
+		public string Prenom { get; init; }
 		private DateTime dateNaiss;
 		public DateTime DateNaiss {
 			get
 			{
 				return dateNaiss;
 			}
-			set
+			private set
 			{
 				DateTime aujourdhui = DateTime.Now;
 				// si la valeur amené est plus petite ou égale à ajd
@@ -24,6 +24,13 @@ namespace Models
 					dateNaiss = value;
 				}
 			}
+		}
+
+		public Personne(string nom, string prenom, DateTime dateNaiss)
+		{
+			Nom = nom;
+			Prenom = prenom;
+			DateNaiss = dateNaiss;
 		}
 	}
 }

@@ -7,8 +7,8 @@ namespace Models
 {
 	public abstract class Compte: IBanker, ICustomer
 	{
-		public string Numero { get; set; }
-		public Personne Titulaire { get; set; }
+		public string Numero { get; private set; }
+		public Personne Titulaire { get; private set; }
 
 		private double solde = 0;
 
@@ -23,6 +23,18 @@ namespace Models
 				solde = value;
 			}
 		}
+
+		public Compte(string numero, Personne titulaire)
+		{
+			Numero = numero;
+			Titulaire = titulaire;
+		}
+		public Compte(string numero, Personne titulaire, double solde): this(numero, titulaire)
+		{
+			Solde = solde;
+		}
+
+
 
 		#region méthode
 		public void Depot(double montant)

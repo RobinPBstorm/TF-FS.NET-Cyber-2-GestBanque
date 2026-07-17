@@ -8,13 +8,19 @@ namespace Models
 {
 	public class Banque
 	{
-		public string Nom { get; set; }
-		private Dictionary<string,Compte> comptes = new Dictionary<string, Compte>();
+		public string Nom { get; init; }
+		private Dictionary<string,Compte> comptes;
 
 		public Dictionary<string,Compte> Comptes
 		{
 			get { return comptes; }
-			set { comptes = value; }
+			init { comptes = value; }
+		}
+
+		public Banque (string nom)
+		{
+			Nom = nom;
+			Comptes = new Dictionary<string,Compte>();
 		}
 
 		public Compte this[string numero]
