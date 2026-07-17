@@ -16,10 +16,11 @@ namespace Models
 			}
 			set 
 			{
-				if (value >= 0)
+				if (value < 0)
 				{
-					ligneDeCredit = value; 
+					throw new InvalidOperationException("La ligne de crédit ne peut être négative");
 				}
+				ligneDeCredit = value; 
 			}
 		}
 		public Courant(string numero, Personne titulaire) : this(numero, titulaire, 0, 0)
@@ -38,10 +39,11 @@ namespace Models
 
 		public override void Retrait(double montant)
 		{
-			if (Solde - montant >= -LigneDeCredit)
+			if (Solde - montant < -LigneDeCredit)
 			{
-				base.Retrait(montant);
+				throw new SoldeInsuffisantException();
 			}
+			base.Retrait(montant);
 		}
 
 		protected override double CalculInteret()

@@ -39,6 +39,11 @@ namespace Models
 		#region méthode
 		public void Depot(double montant)
 		{
+			//if (! (montant > 0))
+			if (montant <= 0)
+			{
+				throw new ArgumentOutOfRangeException("montant", "Pas de montant inférieur ou égal à 0");
+			}
 			Solde += montant;
 		}
 

@@ -37,11 +37,12 @@ namespace Models
 
 		public override void Retrait(double montant)
 		{
-			if (Solde - montant >= 0)
+			if (Solde - montant < 0)
 			{
-				DateDernierRetrait = DateTime.Now;
-				base.Retrait(montant);
+				throw new SoldeInsuffisantException();
 			}
+			base.Retrait(montant);
+			DateDernierRetrait = DateTime.Now;
 		}
 
 		protected override double CalculInteret()
